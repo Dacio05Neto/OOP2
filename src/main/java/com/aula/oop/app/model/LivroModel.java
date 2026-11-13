@@ -25,7 +25,7 @@ public class LivroModel {
     @Column(nullable = false, unique = true)
     private String codigo;
 
-    @Column(nullable = false, unique = true)
+    @Column(nullable = false)
     private int anoLancamento;
 
     @Column(nullable = false)
