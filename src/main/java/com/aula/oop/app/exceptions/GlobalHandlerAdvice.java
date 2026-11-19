@@ -1,5 +1,6 @@
 package com.aula.oop.app.exceptions;
 
+import com.aula.oop.app.repository.UsuarioRepository;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.HttpRequestMethodNotSupportedException;
@@ -27,6 +28,11 @@ public class GlobalHandlerAdvice {
     @ExceptionHandler(UsuarioDuplicado.class)
     public ResponseEntity<Map<String, Object>> tratarUsuarioDuplicado(UsuarioDuplicado ex) {
         return criarResposta(HttpStatus.CONFLICT, ex.getMessage());
+    }
+
+    @ExceptionHandler(UsuarioNaoEncontrado.class)
+    public ResponseEntity<Map<String, Object>> tratarUsuarioNaoEncontrado(UsuarioNaoEncontrado nEncontrado){
+        return criarResposta(HttpStatus.NOT_FOUND, nEncontrado.getMessage());
     }
 
     @ExceptionHandler(HttpRequestMethodNotSupportedException.class)
