@@ -31,4 +31,6 @@ public class LivroModel {
     @Column(nullable = false)
     private double preco;
 
+
+
 }

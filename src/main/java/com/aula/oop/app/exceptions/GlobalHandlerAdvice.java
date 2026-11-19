@@ -24,6 +24,11 @@ public class GlobalHandlerAdvice {
         return criarResposta(HttpStatus.BAD_REQUEST, ex.getMessage());
     }
 
+    @ExceptionHandler(UsuarioDuplicado.class)
+    public ResponseEntity<Map<String, Object>> tratarUsuarioDuplicado(UsuarioDuplicado ex) {
+        return criarResposta(HttpStatus.CONFLICT, ex.getMessage());
+    }
+
     @ExceptionHandler(HttpRequestMethodNotSupportedException.class)
     public ResponseEntity<Map<String, Object>> handleMethodNotAllowed(
             HttpRequestMethodNotSupportedException ex) {
